@@ -1,0 +1,21 @@
+{
+  "name": "Sonali Patil - Portfolio",
+  "short_name": "Sonali Portfolio",
+  "description": "Software Developer & Data Scientist Portfolio",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#00d4ff",
+  "background_color": "#0f0f23",
+  "display": "standalone",
+  "start_url": "/"
+}
