@@ -243,7 +243,7 @@ const HomePage = () => {
       <SkillsPage />
       
       {/* Marquee Gallery */}
-      <MarqueeGallery images={galleryImages} speed={40} />
+      <MarqueeGallery images={galleryImages} speed={30} />
     </PageTransition>
   );
 };
