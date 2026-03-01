@@ -10,10 +10,8 @@ import Footer from "./components/Footer";
 import usePerformanceMonitor from "./hooks/usePerformanceMonitor";
 
 import HomePage from "./pages/HomePage";
-import ProjectsPage from "./pages/ProjectsPage";
-import ResearchPage from "./pages/ResearchPage";
-import CertificationsPage from "./pages/CertificationsPage";
-import ExperiencePage from "./pages/ExperiencePage";
+import ProjectsResearchPage from "./pages/ProjectsResearchPage";
+import ExperienceCertificationsPage from "./pages/ExperienceCertificationsPage";
 import ResumePage from "./pages/ResumePage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
@@ -41,10 +39,8 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/research" element={<ResearchPage />} />
-                <Route path="/certifications" element={<CertificationsPage />} />
-                <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/projects" element={<ProjectsResearchPage />} />
+                <Route path="/experience" element={<ExperienceCertificationsPage />} />
                 <Route path="/resume" element={<ResumePage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="*" element={<NotFound />} />

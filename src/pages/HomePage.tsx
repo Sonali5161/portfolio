@@ -130,8 +130,8 @@ const HomePage = () => {
                 </InteractiveButton>
                 
                 <InteractiveButton variant="glow" className="bg-transparent border-2 border-primary text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
-                  <Link to="/research" className="flex items-center justify-center">
-                    <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> Explore Research
+                  <Link to="/projects" className="flex items-center justify-center">
+                    <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> View Research
                   </Link>
                 </InteractiveButton>
                 

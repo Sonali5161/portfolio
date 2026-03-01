@@ -11,11 +11,8 @@ type NavItem =
 
 const navLinks: NavItem[] = [
   { type: "route", path: "/", label: "Home" },
- 
-  { type: "route", path: "/projects", label: "Projects" },
-  { type: "route", path: "/research", label: "Research" },
-  { type: "route", path: "/certifications", label: "Certifications" },
-  { type: "route", path: "/experience", label: "Experience" },
+  { type: "route", path: "/projects", label: "Projects & Research" },
+  { type: "route", path: "/experience", label: "Experience & Certifications" },
   { type: "route", path: "/resume", label: "Resume" },
   { type: "route", path: "/contact", label: "Contact" },
 ];
