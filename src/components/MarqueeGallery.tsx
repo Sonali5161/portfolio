@@ -96,23 +96,34 @@ const MarqueeGallery = ({ images, speed = 40 }: MarqueeGalleryProps) => {
       </div>
 
       <div className="relative">
-        {/* Mobile Gallery with Touch Support */}
+        {/* Mobile Gallery with Touch Support AND Marquee */}
         <div className="block md:hidden">
           <div className="overflow-hidden">
             <motion.div
               className="flex gap-4"
               animate={{
-                x: `-${currentIndex * (280)}px`, // 256px width + 24px gap
+                x: isPaused 
+                  ? `-${currentIndex * (280)}px`
+                  : [
+                      `-${currentIndex * (280)}px`,
+                      `-${((currentIndex + images.length) * (280))}px`
+                    ],
               }}
               transition={{
-                duration: 0.5,
-                ease: "easeInOut",
+                x: isPaused 
+                  ? { duration: 0.5, ease: "easeInOut" }
+                  : {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: speed,
+                      ease: "linear",
+                    },
               }}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {/* Triple images for smooth loop on mobile too */}
+              {/* Triple images for smooth loop on mobile */}
               {[...images, ...images, ...images].map((image, index) => (
                 <motion.div
                   key={`mobile-${index}`}
