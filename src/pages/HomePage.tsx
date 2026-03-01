@@ -10,6 +10,17 @@ import PageTransition from '@/components/PageTransition';
 import AnimatedEmojis from '@/components/AnimatedEmojis';
 import MarqueeGallery from '@/components/MarqueeGallery';
 import sonaliProfile from '@/assets/sonali-profile.jpg';
+import image from '@/assets/assets1/image.png';
+import img2 from '@/assets/assets1/img2.jpg';
+import img3 from '@/assets/assets1/img3.jpg';
+import img4 from '@/assets/assets1/img4.jpg';
+import img5 from '@/assets/assets1/img5.jpg';
+import img6 from '@/assets/assets1/img6.jpg';
+import img7 from '@/assets/assets1/img7.jpg';
+import img8 from '@/assets/assets1/img8.jpg';
+import img9 from '@/assets/assets1/img9.jpg';
+import img10 from '@/assets/assets1/img10.jpg';
+import img11 from '@/assets/assets1/img11.jpg';
 import AboutPage from './AboutPage';
 import SkillsPage from './SkillsPage';
 const roles = [
@@ -19,10 +30,19 @@ const roles = [
   'Software Engineer',
 ];
 
-// Placeholder images - replace with your actual images
+// Gallery images from assets1 folder
 const galleryImages = [
-  sonaliProfile,
-  // Add more images here when you provide them
+  image,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
 ];
 
 const HomePage = () => {
