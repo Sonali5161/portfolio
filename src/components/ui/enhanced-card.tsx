@@ -78,7 +78,7 @@ const EnhancedCard = React.forwardRef<HTMLDivElement, EnhancedCardProps>(
           else if (ref) ref.current = node;
         }}
         className={cn(
-          "relative rounded-2xl p-6 transition-all duration-500 ease-out",
+          "relative rounded-2xl p-6 transition-all duration-500 ease-out cursor-pointer",
           getVariantStyles(),
           className
         )}

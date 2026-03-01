@@ -168,7 +168,7 @@ const HomePage = () => {
                 {/* Image Container with 3D effect */}
                 <EnhancedCard 
                   variant="3d" 
-                  className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden p-0 border-2 md:border-4 border-primary/30"
+                  className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden p-0 border-2 md:border-4 border-primary/30 cursor-pointer"
                 >
                   <img
                     src={sonaliProfile}

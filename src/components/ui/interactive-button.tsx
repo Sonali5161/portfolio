@@ -59,7 +59,7 @@ const InteractiveButton = React.forwardRef<HTMLButtonElement, InteractiveButtonP
           else if (ref) ref.current = node;
         }}
         className={cn(
-          "px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+          "px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer",
           getVariantStyles(),
           className
         )}

@@ -271,7 +271,7 @@
   }
 
   .nav-link {
-    @apply relative text-muted-foreground transition-colors duration-300;
+    @apply relative text-muted-foreground transition-colors duration-300 cursor-pointer;
   }
 
   .nav-link::after {
@@ -622,5 +622,54 @@
     -webkit-text-fill-color: unset;
     background-clip: unset;
     color: hsl(var(--primary));
+  }
+}
+/* Custom cursor enhancements */
+.cursor-magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cursor-magnetic:hover {
+  transform: scale(1.05);
+}
+
+/* Cursor interaction classes */
+.cursor-pointer {
+  cursor: none !important;
+}
+
+.cursor-grab {
+  cursor: none !important;
+}
+
+.cursor-text {
+  cursor: none !important;
+}
+
+/* Enhanced cursor states */
+.cursor-glow {
+  position: relative;
+}
+
+.cursor-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.cursor-glow:hover::before {
+  opacity: 0.3;
+}
+
+/* Disable cursor on mobile */
+@media (max-width: 768px) {
+  body, * {
+    cursor: auto !important;
   }
 }
