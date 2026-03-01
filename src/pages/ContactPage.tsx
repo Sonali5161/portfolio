@@ -75,22 +75,22 @@ const ContactPage = () => {
 
   return (
     <PageTransition>
-      <section className="min-h-screen pt-32 pb-20">
+      <section className="min-h-screen pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Get In Touch" 
             subtitle="Let's connect and discuss opportunities"
           />
 
-          <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="glass rounded-2xl p-8"
+              className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 order-2 lg:order-1"
             >
-              <h3 className="font-display text-2xl font-bold text-foreground mb-6">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                 Send a Message
               </h3>
 
@@ -99,12 +99,12 @@ const ContactPage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-destructive/10 border border-destructive/50 rounded-lg flex items-start gap-3"
+                  className="mb-4 sm:mb-6 p-3 sm:p-4 bg-destructive/10 border border-destructive/50 rounded-lg flex items-start gap-3"
                 >
-                  <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 text-destructive flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-destructive font-medium">Error</p>
-                    <p className="text-destructive/80 text-sm">{error}</p>
+                    <p className="text-destructive font-medium text-sm sm:text-base">Error</p>
+                    <p className="text-destructive/80 text-xs sm:text-sm">{error}</p>
                   </div>
                 </motion.div>
               )}
@@ -114,19 +114,19 @@ const ContactPage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-primary/10 border border-primary/50 rounded-lg flex items-start gap-3"
+                  className="mb-4 sm:mb-6 p-3 sm:p-4 bg-primary/10 border border-primary/50 rounded-lg flex items-start gap-3"
                 >
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-primary font-medium">Message Sent!</p>
-                    <p className="text-primary/80 text-sm">Thank you for reaching out. I'll get back to you soon.</p>
+                    <p className="text-primary font-medium text-sm sm:text-base">Message Sent!</p>
+                    <p className="text-primary/80 text-xs sm:text-sm">Thank you for reaching out. I'll get back to you soon.</p>
                   </div>
                 </motion.div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Your Name
                   </label>
                   <Input
@@ -138,18 +138,18 @@ const ContactPage = () => {
                       setFormData({ ...formData, name: e.target.value });
                       setFieldErrors({ ...fieldErrors, name: '' });
                     }}
-                    className={`bg-background/50 border-border/50 focus:border-primary ${
+                    className={`bg-background/50 border-border/50 focus:border-primary h-10 sm:h-11 text-sm sm:text-base ${
                       fieldErrors.name ? 'border-destructive' : ''
                     }`}
                     disabled={isSubmitting}
                   />
                   {fieldErrors.name && (
-                    <p className="text-destructive text-sm mt-1">{fieldErrors.name}</p>
+                    <p className="text-destructive text-xs sm:text-sm mt-1">{fieldErrors.name}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Email Address
                   </label>
                   <Input
@@ -161,36 +161,36 @@ const ContactPage = () => {
                       setFormData({ ...formData, email: e.target.value });
                       setFieldErrors({ ...fieldErrors, email: '' });
                     }}
-                    className={`bg-background/50 border-border/50 focus:border-primary ${
+                    className={`bg-background/50 border-border/50 focus:border-primary h-10 sm:h-11 text-sm sm:text-base ${
                       fieldErrors.email ? 'border-destructive' : ''
                     }`}
                     disabled={isSubmitting}
                   />
                   {fieldErrors.email && (
-                    <p className="text-destructive text-sm mt-1">{fieldErrors.email}</p>
+                    <p className="text-destructive text-xs sm:text-sm mt-1">{fieldErrors.email}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Your Message
                   </label>
                   <Textarea
                     id="message"
                     placeholder="Tell me about your project or opportunity..."
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={(e) => {
                       setFormData({ ...formData, message: e.target.value });
                       setFieldErrors({ ...fieldErrors, message: '' });
                     }}
-                    className={`bg-background/50 border-border/50 focus:border-primary resize-none ${
+                    className={`bg-background/50 border-border/50 focus:border-primary resize-none text-sm sm:text-base ${
                       fieldErrors.message ? 'border-destructive' : ''
                     }`}
                     disabled={isSubmitting}
                   />
                   {fieldErrors.message && (
-                    <p className="text-destructive text-sm mt-1">{fieldErrors.message}</p>
+                    <p className="text-destructive text-xs sm:text-sm mt-1">{fieldErrors.message}</p>
                   )}
                 </div>
 
@@ -198,7 +198,7 @@ const ContactPage = () => {
                   type="submit"
                   variant="hero"
                   size="lg"
-                  className="w-full"
+                  className="w-full h-11 sm:h-12 text-sm sm:text-base"
                   disabled={isSubmitting || isSubmitted}
                 >
                   {isSubmitting ? (
@@ -208,11 +208,11 @@ const ContactPage = () => {
                     </div>
                   ) : isSubmitted ? (
                     <>
-                      <CheckCircle className="mr-2 h-5 w-5" /> Message Sent!
+                      <CheckCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> Message Sent!
                     </>
                   ) : (
                     <>
-                      <Send className="mr-2 h-5 w-5" /> Send Message
+                      <Send className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> Send Message
                     </>
                   )}
                 </Button>
@@ -224,14 +224,14 @@ const ContactPage = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6 order-1 lg:order-2"
             >
-              <div className="glass rounded-2xl p-8">
-                <h3 className="font-display text-2xl font-bold text-foreground mb-6">
+              <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                   Contact Information
                 </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {contactInfo.map((item, index) => (
                     <motion.div
                       key={item.label}
@@ -245,26 +245,26 @@ const ContactPage = () => {
                           href={item.href}
                           target={item.href.startsWith('http') ? '_blank' : undefined}
                           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="flex items-center gap-4 p-4 rounded-xl bg-background/30 hover:bg-primary/10 transition-colors group"
+                          className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background/30 hover:bg-primary/10 transition-colors group touch-target"
                         >
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                            <item.icon className="h-5 w-5 text-primary" />
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                            <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
-                          <div>
-                            <p className="text-sm text-muted-foreground">{item.label}</p>
-                            <p className="text-foreground font-medium group-hover:text-primary transition-colors">
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs sm:text-sm text-muted-foreground">{item.label}</p>
+                            <p className="text-sm sm:text-base text-foreground font-medium group-hover:text-primary transition-colors truncate">
                               {item.value}
                             </p>
                           </div>
                         </a>
                       ) : (
-                        <div className="flex items-center gap-4 p-4 rounded-xl bg-background/30">
-                          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                            <item.icon className="h-5 w-5 text-primary" />
+                        <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background/30">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center">
+                            <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                           </div>
-                          <div>
-                            <p className="text-sm text-muted-foreground">{item.label}</p>
-                            <p className="text-foreground font-medium">{item.value}</p>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs sm:text-sm text-muted-foreground">{item.label}</p>
+                            <p className="text-sm sm:text-base text-foreground font-medium truncate">{item.value}</p>
                           </div>
                         </div>
                       )}
@@ -278,36 +278,36 @@ const ContactPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="glass rounded-2xl p-8 text-center"
+                className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center"
               >
-                <h4 className="font-display text-xl font-bold text-foreground mb-2">
+                <h4 className="font-display text-lg sm:text-xl font-bold text-foreground mb-2">
                   Open to Opportunities
                 </h4>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 text-sm sm:text-base">
                   Looking for AI/ML engineering roles, research positions, and exciting collaborations.
                 </p>
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center gap-3 sm:gap-4">
                   <a
-                    href="https://github.com"
+                    href="https://github.com/Sonali5161"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 glass rounded-full glow-hover transition-transform hover:scale-110"
+                    className="p-2.5 sm:p-3 glass rounded-full glow-hover transition-transform hover:scale-110 touch-target"
                   >
-                    <Github className="h-5 w-5 text-foreground" />
+                    <Github className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
                   </a>
                   <a
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 glass rounded-full glow-hover transition-transform hover:scale-110"
+                    className="p-2.5 sm:p-3 glass rounded-full glow-hover transition-transform hover:scale-110 touch-target"
                   >
-                    <Linkedin className="h-5 w-5 text-foreground" />
+                    <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
                   </a>
                   <a
-                    href="mailto:sonali@example.com"
-                    className="p-3 glass rounded-full glow-hover transition-transform hover:scale-110"
+                    href="mailto:patilsonali5161@gmail.com"
+                    className="p-2.5 sm:p-3 glass rounded-full glow-hover transition-transform hover:scale-110 touch-target"
                   >
-                    <Mail className="h-5 w-5 text-foreground" />
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-foreground" />
                   </a>
                 </div>
               </motion.div>

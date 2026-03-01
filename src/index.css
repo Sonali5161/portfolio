@@ -522,6 +522,90 @@
   .card-3d:hover {
     transform: translateY(-4px);
   }
+  
+  /* Mobile-specific spacing */
+  .mobile-padding {
+    @apply px-4 py-6;
+  }
+  
+  .mobile-text-sm {
+    @apply text-sm;
+  }
+  
+  .mobile-text-base {
+    @apply text-base;
+  }
+  
+  .mobile-text-lg {
+    @apply text-lg;
+  }
+  
+  /* Mobile navigation */
+  .mobile-nav-height {
+    height: calc(100vh - 4rem);
+  }
+  
+  /* Mobile cards */
+  .mobile-card-spacing {
+    @apply gap-4 p-4;
+  }
+  
+  /* Mobile buttons */
+  .mobile-button {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  /* Mobile hero section */
+  .mobile-hero-spacing {
+    @apply pt-24 pb-12;
+  }
+  
+  /* Mobile grid adjustments */
+  .mobile-grid-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .tablet-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tablet-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .tablet-padding {
+    @apply px-6 py-8;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  .magnetic-hover {
+    transition: none;
+  }
+  
+  /* Larger touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Disable complex animations on touch devices */
+  .animate-morph,
+  .morphing-blob {
+    animation: none;
+  }
 }
 
 /* High contrast mode support */

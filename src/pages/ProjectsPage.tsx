@@ -77,7 +77,7 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
       onClick={onClick}
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden -m-6 mb-4">
+      <div className="relative h-40 sm:h-48 overflow-hidden -m-4 sm:-m-6 mb-3 sm:mb-4">
         <img
           src={project.image}
           alt={project.title}
@@ -93,87 +93,87 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
             whileHover={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <Eye className="h-12 w-12 text-foreground" />
+            <Eye className="h-8 w-8 sm:h-12 sm:w-12 text-foreground" />
           </motion.div>
         </motion.div>
         
         {/* Floating badges */}
-        <div className="absolute top-4 right-4 flex gap-2">
+        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-primary/90 text-primary-foreground px-2 py-1 rounded-full text-xs flex items-center gap-1"
+            className="bg-primary/90 text-primary-foreground px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs flex items-center gap-1"
           >
-            <Star className="w-3 h-3" />
-            {Math.floor(Math.random() * 50) + 10}
+            <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+            <span className="hidden sm:inline">{Math.floor(Math.random() * 50) + 10}</span>
           </motion.div>
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-secondary/90 text-secondary-foreground px-2 py-1 rounded-full text-xs flex items-center gap-1"
+            className="bg-secondary/90 text-secondary-foreground px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs flex items-center gap-1"
           >
-            <GitFork className="w-3 h-3" />
-            {Math.floor(Math.random() * 20) + 5}
+            <GitFork className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+            <span className="hidden sm:inline">{Math.floor(Math.random() * 20) + 5}</span>
           </motion.div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 -mt-2">
+      <div className="p-4 sm:p-6 -mt-1 sm:-mt-2">
         <motion.h3 
-          className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors"
+          className="font-display text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors"
           whileHover={{ x: 5 }}
         >
           {project.title}
         </motion.h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+        <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2">
           {project.description}
         </p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
           {project.technologies.slice(0, 3).map((tech, index) => (
             <motion.span
               key={tech}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md hover:bg-primary/20 transition-colors"
+              className="px-2 py-0.5 sm:py-1 bg-primary/10 text-primary text-xs rounded-md hover:bg-primary/20 transition-colors"
             >
               {tech}
             </motion.span>
           ))}
           {project.technologies.length > 3 && (
-            <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md">
+            <span className="px-2 py-0.5 sm:py-1 bg-muted text-muted-foreground text-xs rounded-md">
               +{project.technologies.length - 3}
             </span>
           )}
         </div>
 
         {/* Actions: show GitHub for all; only AgriConnect shows Live link */}
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <InteractiveButton
             variant="magnetic"
-            className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-4 py-2 text-sm"
+            className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-3 sm:px-4 py-2 text-xs sm:text-sm w-full sm:w-auto"
             onClick={(e) => {
               e.stopPropagation();
               window.open(project.github, '_blank');
             }}
           >
-            <Github className="h-4 w-4 mr-2" /> GitHub
+            <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-2" /> GitHub
           </InteractiveButton>
           {project.title === 'AgriConnect' && project.demo && (
             <InteractiveButton
               variant="glow"
-              className="bg-primary text-primary-foreground px-4 py-2 text-sm"
+              className="bg-primary text-primary-foreground px-3 sm:px-4 py-2 text-xs sm:text-sm w-full sm:w-auto"
               onClick={(e) => {
                 e.stopPropagation();
                 window.open(project.demo, '_blank');
               }}
             >
-              <ExternalLink className="h-4 w-4 mr-2" /> Live
+              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-2" /> Live
             </InteractiveButton>
           )}
         </div>
@@ -188,28 +188,28 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-background/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="glass-strong rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+        className="glass-strong rounded-xl sm:rounded-2xl max-w-3xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-4 right-4 z-10"
+          className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 touch-target"
           onClick={onClose}
         >
-          <X className="h-6 w-6" />
+          <X className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
 
         {/* Image */}
-        <div className="relative h-64 md:h-80">
+        <div className="relative h-48 sm:h-64 md:h-80">
           <img
             src={project.image}
             alt={project.title}
@@ -219,25 +219,25 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
         </div>
 
         {/* Content */}
-        <div className="p-8 -mt-20 relative">
-          <h2 className="font-display text-3xl font-bold text-foreground mb-4">
+        <div className="p-4 sm:p-6 md:p-8 -mt-12 sm:-mt-16 md:-mt-20 relative">
+          <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3 sm:mb-4 pr-8">
             {project.title}
           </h2>
           
-          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
             {project.fullDescription}
           </p>
 
           {/* Technologies */}
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">
+          <div className="mb-4 sm:mb-6">
+            <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-2 sm:mb-3 uppercase tracking-wider">
               Technologies Used
             </h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-lg"
+                  className="px-2 sm:px-3 py-1 sm:py-1.5 bg-primary/10 text-primary text-xs sm:text-sm rounded-md sm:rounded-lg"
                 >
                   {tech}
                 </span>
@@ -246,16 +246,16 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
           </div>
 
           {/* Actions */}
-          <div className="flex gap-4">
-            <Button variant="outline-glow" size="lg" asChild>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <Button variant="outline-glow" size="lg" asChild className="w-full sm:w-auto">
               <a href={project.github} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" /> View on GitHub
+                <Github className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> View on GitHub
               </a>
             </Button>
               {project.title === 'AgriConnect' && project.demo && (
-                <Button variant="hero" size="lg" asChild>
+                <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
                   <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-5 w-5" /> Live
+                    <ExternalLink className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> Live
                   </a>
                 </Button>
               )}
@@ -271,14 +271,14 @@ const ProjectsPage = () => {
 
   return (
     <PageTransition>
-      <section className="min-h-screen pt-32 pb-20">
+      <section className="min-h-screen pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div className="container mx-auto px-4">
           <SectionTitle 
             title="Projects" 
             subtitle="Innovative solutions built with cutting-edge technologies"
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}
