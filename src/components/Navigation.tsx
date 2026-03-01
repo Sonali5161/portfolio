@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
 

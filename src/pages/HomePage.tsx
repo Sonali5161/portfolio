@@ -8,6 +8,7 @@ import { FloatingActionButton } from '@/components/ui/floating-action-button';
 import TypewriterText from '@/components/TypewriterText';
 import PageTransition from '@/components/PageTransition';
 import AnimatedEmojis from '@/components/AnimatedEmojis';
+import MarqueeGallery from '@/components/MarqueeGallery';
 import sonaliProfile from '@/assets/sonali-profile.jpg';
 import AboutPage from './AboutPage';
 import SkillsPage from './SkillsPage';
@@ -16,6 +17,12 @@ const roles = [
   'Intelligent Systems Developer',
   'Research-Oriented Technologist',
   'Software Engineer',
+];
+
+// Placeholder images - replace with your actual images
+const galleryImages = [
+  sonaliProfile,
+  // Add more images here when you provide them
 ];
 
 const HomePage = () => {
@@ -214,6 +221,9 @@ const HomePage = () => {
       
       <AboutPage />
       <SkillsPage />
+      
+      {/* Marquee Gallery */}
+      <MarqueeGallery images={galleryImages} speed={40} />
     </PageTransition>
   );
 };
